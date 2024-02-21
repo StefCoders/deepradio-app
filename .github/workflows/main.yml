@@ -29,8 +29,5 @@ jobs:
       - name: Increment version
         run: npm version minor --force
 
-      - name: Build for Linux
-        run: npm run build-linux
-
       - name: Build for Windows
         run: npm run build-win
