@@ -1,0 +1,30 @@
+name: Weekly Build
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Schedule to run every Sunday at midnight UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Increment version
+        run: npm version minor --force
+
+      - name: Build for Linux
+        run: electron-builder -l
+
+      - name: Build for Windows
+        run: electron-builder -w
