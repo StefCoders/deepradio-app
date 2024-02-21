@@ -1,0 +1,45 @@
+{
+  "name": "deepradio",
+  "version": "1.0.0",
+  "description": "The official DeepRadio app.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-win": "electron-builder -w",
+    "build-linux": "electron-builder -l"
+  },
+  "build": {
+    "appId": "DeepRadio",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "favicon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "installerIcon": "favicon.ico",
+      "uninstallerIcon": "favicon.ico",
+      "uninstallDisplayName": "DeepRadio Uninstaller",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": false
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "appx": {
+      "applicationId": "DeepRadio",
+      "identityName": "DeepRadio",
+      "publisherDisplayName": "Stefan - DeepRadio"
+    }
+  },
+  "keywords": [
+    "DeepRadio"
+  ],
+  "author": "Stefan - DeepRadio",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.2.2",
+    "electron-builder": "^24.9.1"
+  }
+}
