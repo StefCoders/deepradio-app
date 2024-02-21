@@ -5,8 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build-win": "electron-builder -w",
-    "build-linux": "electron-builder -l"
+    "build-win": "electron-builder -w"
   },
   "build": {
     "appId": "DeepRadio",
@@ -14,8 +13,9 @@
       "target": [
         "nsis"
       ],
-      "icon": "favicon.ico"
-    },
+      "icon": "favicon.ico",
+      "verifyUpdateCodeSignature": false
+    }
     "nsis": {
       "oneClick": true,
       "installerIcon": "favicon.ico",
