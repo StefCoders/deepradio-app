@@ -13,7 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Set up Git
+        run: |
+          git config --global user.email "stefan.baciu01@gmail.com"
+          git config --global user.name "Stefan - DeepRadio"
+
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
