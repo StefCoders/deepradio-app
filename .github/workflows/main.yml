@@ -1,4 +1,4 @@
-name: Weekly Build
+name: Weekly Build - DeepRadio
 
 on:
   schedule:
@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "stefan@stefcodes.co.uk"
+          git config --global user.name "Stefan - DeepRadio"
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
