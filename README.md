@@ -1,6 +1,6 @@
 # DeepRadio's App!
 
-## Works on Linux and Windows (tested on Windows)
+Works on Linux and Windows (tested on Windows)
 
 ## Windows:
 
