@@ -1,4 +1,4 @@
-name: Weekly Build - DeepRadio
+name: Weekly Build
 
 on:
   schedule:
@@ -13,12 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Git
-        run: |
-          git config --global user.email "stefan@stefcodes.co.uk"
-          git config --global user.name "Stefan - DeepRadio"
-
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
@@ -30,7 +25,7 @@ jobs:
         run: npm version minor --force
 
       - name: Build for Linux
-        run: electron-builder -l
+        run: npm run build-linux
 
       - name: Build for Windows
-        run: electron-builder -w
+        run: npm run build-win
