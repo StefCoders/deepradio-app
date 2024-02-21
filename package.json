@@ -24,10 +24,6 @@
       "license": "license.md",
       "allowToChangeInstallationDirectory": false
     },
-    "linux": {
-      "target": "AppImage",
-      "publish": "never"
-    },
     "appx": {
       "applicationId": "DeepRadio",
       "identityName": "DeepRadio",
