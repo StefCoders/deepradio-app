@@ -37,14 +37,7 @@
         "nsis"
       ],
       "icon": "favicon.ico",
-      "nsis": {
-        "oneClick": true,
-        "installerIcon": "favicon.ico",
-        "uninstallerIcon": "favicon.ico",
-        "uninstallDisplayName": "DeepRadio Uninstaller",
-        "allowToChangeInstallationDirectory": false,
-        "license": "license.md"
-      }
+      "publisherName": "Stefan - DeepRadio"
     },
     "appx": {
       "applicationId": "DeepRadio",
