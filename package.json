@@ -33,7 +33,8 @@
       "provider": "github",
       "owner": "StefCoders",
       "repo": "deepradio-app"
-    },
+    }
+  },
   "keywords": [
     "DeepRadio"
   ],
