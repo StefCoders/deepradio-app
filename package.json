@@ -29,11 +29,12 @@
       "identityName": "DeepRadio",
       "publisherDisplayName": "Stefan - DeepRadio"
     },
-    "publish": {
-      "provider": "github",
-      "owner": "StefCoders",
-      "repo": "deepradio-app"
-    }
+"publish": {
+  "provider": "github",
+  "owner": "StefCoders",
+  "repo": "deepradio-app",
+  "token": "${GH_TOKEN}"
+}
   },
   "keywords": [
     "DeepRadio"
