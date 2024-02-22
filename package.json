@@ -15,7 +15,7 @@
       ],
       "icon": "favicon.ico",
       "verifyUpdateCodeSignature": false
-    }
+    },
     "nsis": {
       "oneClick": true,
       "installerIcon": "favicon.ico",
