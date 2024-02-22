@@ -41,7 +41,7 @@ jobs:
           files: |
             dist/*.exe
             dist/*.msi
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           releaseName: Release ${{ github.run_number }}
           releaseNotes: Weekly build
           draft: false
