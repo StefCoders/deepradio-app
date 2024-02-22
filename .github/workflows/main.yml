@@ -20,11 +20,11 @@ jobs:
                   node-version: 16
 
             - name: Compile Electron App
-              uses: x6Pnda/action-electron-compiler@v1
+              uses: x6Pnda/action-electron-compiler@v1.0.1
               with:
                   # GitHub token, automatically provided to the action
                   # (Optional)
-                  github_token: ${{ secrets.github_token }}
+                  github_token: ${{ secrets.GH_TOKEN }}
 
                   # If the commit is tagged with a version (e.g. "v1.0.0"),
                   # (Optional)
