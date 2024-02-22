@@ -1,39 +1,51 @@
-name: Build/release
+name: Build and Publish
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 17 * * 5" # Every Friday at 5 PM
 
 jobs:
-    release:
-        runs-on: ${{ matrix.os }}
+  build-and-publish:
+    runs-on: windows-latest
 
-        strategy:
-            matrix:
-                os: [windows-latest]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-        steps:
-            - name: Check out Git repository
-              uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
 
-            - name: Install Node.js, NPM and Yarn
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 16
+      - name: Install Dependencies
+        run: npm install
 
-            - name: Compile Electron App
-              uses: x6Pnda/action-electron-compiler@v1.0.1
-              with:
-                  # GitHub token, automatically provided to the action
-                  # (Optional)
-                  github_token: ${{ secrets.GH_TOKEN }}
+      - name: Build Electron App for Windows
+        run: npm run build
 
-                  # If the commit is tagged with a version (e.g. "v1.0.0"),
-                  # (Optional)
-                  release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          tag_name: v${{ github.run_number }} 
+          release_name: Release v${{ github.run_number }} 
+          body: |
+            Describe what's included in this release.
+          draft: false
+          prerelease: false
 
-                  # Package manager. NPM, PNPM and Yarn supported. Install Yarn and PNPM yourself. Default is NPM
-                  # (Optional)
-                  package_manager: NPM
-
-                  # Skip buiding the application
-                  # (Optional)
-                  skip_build: false
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist\deepradio Setup 1.0.0.exe 
+          asset_name: deepradio.exe
+          asset_content_type: application/octet-stream
