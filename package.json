@@ -1,7 +1,7 @@
 {
   "name": "deepradio",
   "version": "1.0.0",
-  "description": "The official DeepRadio app.",
+  "description": "DeepRadio's official app.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -18,13 +18,10 @@
       "publish": "always" 
     }
   },
-  "keywords": [
-    "DeepRadio"
-  ],
   "author": "Stefan - DeepRadio",
-  "license": "MIT",
+  "license": "ISC",
   "devDependencies": {
-    "electron": "^28.2.2",
-    "electron-builder": "^24.9.1"
+    "electron": "^29.0.1",
+    "electron-builder": "^24.12.0"
   }
 }
