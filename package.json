@@ -5,8 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder -w", // Change this to build only for Windows
-    "build-win": "electron-builder -w", // Optional, if you want to specify building for Windows in a separate script
+    "build": "electron-builder -w"
   },
   "build": {
     "appId": "DeepRadio",
