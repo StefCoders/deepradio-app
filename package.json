@@ -1,20 +1,42 @@
 {
   "name": "deepradio",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "The official DeepRadio app.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build-win": "electron-builder -w"
+    "build": "electron-builder -mw",
+    "build-win": "electron-builder -w",
+    "build-linux": "electron-builder -l",
+    "build-mac": "electron-builder -m"
   },
   "build": {
     "appId": "DeepRadio",
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "favicon.ico"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
     "win": {
       "target": [
         "nsis"
       ],
-      "icon": "favicon.ico",
-      "verifyUpdateCodeSignature": false
+      "icon": "favicon.ico"
     },
     "nsis": {
       "oneClick": true,
@@ -28,13 +50,7 @@
       "applicationId": "DeepRadio",
       "identityName": "DeepRadio",
       "publisherDisplayName": "Stefan - DeepRadio"
-    },
-"publish": {
-  "provider": "github",
-  "owner": "StefCoders",
-  "repo": "deepradio-app",
-  "token": "${GH_TOKEN}"
-}
+    }
   },
   "keywords": [
     "DeepRadio"
