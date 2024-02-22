@@ -14,10 +14,10 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v1
 
-      - name: Use Node.js 12
+      - name: Use Node.js latest version
         uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: '16' # Specify the Node.js version you want to use
 
       - name: Install dependencies
         run: npm install
