@@ -1,9 +1,6 @@
 name: Build/release
 
-on:
-  push:
-    branches:
-      - main # Change this to your main branch name
+on: push
 
 jobs:
   release:
@@ -11,26 +8,23 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [windows-latest] # Remove macOS-latest and ubuntu-latest from the list
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2 # Update to v2
+        uses: actions/checkout@v1
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2 # Update to v2
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
         with:
-          node-version: 14 # Change to the desired Node.js version
-
-      - name: Install Yarn
-        run: npm install -g yarn@latest # Install latest version of Yarn
+          node-version: 10
 
       - name: Build/release Electron app
-        uses: samuelmeuli/action-electron-builder@v1 # Update to v2
+        uses: samuelmeuli/action-electron-builder@v1
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
-          github_token: ${{ secrets.GH_TOKEN }} # Update to GH_TOKEN
+          github_token: ${{ secrets.github_token }}
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
