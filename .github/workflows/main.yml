@@ -2,8 +2,8 @@ name: Weekly Build
 
 on:
   schedule:
-    - cron: '0 0 * * 0'  # Schedule to run every Sunday at midnight UTC
-  workflow_dispatch:  # Allows manual triggering
+    - cron: '0 0 * * 0' 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -31,3 +31,15 @@ jobs:
 
       - name: Build for Windows
         run: npm run build-win
+
+      - name: Publish Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/*.exe
+            dist/*.msi
+          token: ${{ secrets.GITHUB_TOKEN }}
+          releaseName: Release ${{ github.run_number }}
+          releaseNotes: Weekly build
+          draft: false
+          prerelease: false
