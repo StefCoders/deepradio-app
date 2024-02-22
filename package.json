@@ -5,44 +5,17 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder -mw",
-    "build-win": "electron-builder -w",
-    "build-linux": "electron-builder -l",
-    "build-mac": "electron-builder -m"
+    "build": "electron-builder -w", // Change this to build only for Windows
+    "build-win": "electron-builder -w", // Optional, if you want to specify building for Windows in a separate script
   },
   "build": {
     "appId": "DeepRadio",
-    "mac": {
-      "target": [
-        "dmg"
-      ],
-      "icon": "favicon.ico"
-    },
-    "dmg": {
-      "contents": [
-        {
-          "x": 130,
-          "y": 220
-        },
-        {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
     "win": {
       "target": [
         "nsis"
       ],
       "icon": "favicon.ico",
       "publisherName": "Stefan - DeepRadio"
-    },
-    "appx": {
-      "applicationId": "DeepRadio",
-      "identityName": "DeepRadio",
-      "publisherDisplayName": "Stefan - DeepRadio"
     }
   },
   "keywords": [
