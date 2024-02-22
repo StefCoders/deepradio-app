@@ -23,6 +23,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Set up Environment
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm run build
+
       - name: Build Electron App for Windows
         run: npm run build
 
