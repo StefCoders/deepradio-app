@@ -29,7 +29,7 @@
       "identityName": "DeepRadio",
       "publisherDisplayName": "Stefan - DeepRadio"
     },
-    "publish": { "provider": "generic" }
+    "publish": { "provider": "github" }
   },
   "keywords": [
     "DeepRadio"
