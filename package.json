@@ -14,7 +14,8 @@
         "nsis"
       ],
       "icon": "favicon.ico",
-      "publisherName": "Stefan - DeepRadio"
+      "publisherName": "Stefan - DeepRadio",
+      "publish": ["github"]
     }
   },
   "author": "Stefan - DeepRadio",
