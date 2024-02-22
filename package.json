@@ -36,15 +36,15 @@
       "target": [
         "nsis"
       ],
-      "icon": "favicon.ico"
-    },
-    "nsis": {
-      "oneClick": true,
-      "installerIcon": "favicon.ico",
-      "uninstallerIcon": "favicon.ico",
-      "uninstallDisplayName": "DeepRadio Uninstaller",
-      "license": "license.md",
-      "allowToChangeInstallationDirectory": false
+      "icon": "favicon.ico",
+      "nsis": {
+        "oneClick": true,
+        "installerIcon": "favicon.ico",
+        "uninstallerIcon": "favicon.ico",
+        "uninstallDisplayName": "DeepRadio Uninstaller",
+        "allowToChangeInstallationDirectory": false,
+        "license": "license.md"
+      }
     },
     "appx": {
       "applicationId": "DeepRadio",
